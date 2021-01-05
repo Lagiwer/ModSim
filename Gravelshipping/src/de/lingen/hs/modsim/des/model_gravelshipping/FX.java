@@ -13,7 +13,7 @@ public class FX extends Simulation {
 		
 		//j
 		
-		//fickt euch
+		//du kek
 		
 		
 	}
