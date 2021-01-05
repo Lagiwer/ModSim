@@ -11,11 +11,7 @@ public class FX extends Simulation {
 		
 		
 		
-		//jasdfölkj
-		
-		//geh mir nich aufn sack du kiezstricher
-		// bdjdjdjjk test
-		
+	
 	}
 
 	

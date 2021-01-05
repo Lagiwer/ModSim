@@ -85,12 +85,13 @@ public abstract class Simulation
 				sumObjectsSimClass = 1;
 			}
 			
-			System.out.println(String.format("fUtilization %s = %.2f %%", simulationObject, utilSimObject + 1));
+			System.out.println(String.format("fUtilization %s = %.2f %%", simulationObject, utilSimObject +1));
 			
 		}
 		
 		if (sumObjectsSimClass > 1)
 			System.out.println(String.format("Utilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
 		System.out.println("------------------------------------");
+		
 	}
 }
