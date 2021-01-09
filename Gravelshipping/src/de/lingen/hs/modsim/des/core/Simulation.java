@@ -1,5 +1,8 @@
 package de.lingen.hs.modsim.des.core;
 
+
+import javafx.scene.chart.XYChart;
+
 public abstract class Simulation
 {
 	protected abstract void printEveryStep();
@@ -85,7 +88,7 @@ public abstract class Simulation
 				sumObjectsSimClass = 1;
 			}
 			
-			System.out.println(String.format("fUtilization %s = %.2f %%", simulationObject, utilSimObject +1));
+			System.out.println(String.format("fUtilization %s = %.2f %%", simulationObject, utilSimObject +1 ));
 			
 		}
 		
@@ -93,5 +96,26 @@ public abstract class Simulation
 			System.out.println(String.format("Utilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
 		System.out.println("------------------------------------");
 		
+		
+		
+		
+		
+	}
+	
+	
+	public static XYChart.Series<Number, Number> test123(int xAxis, int yAxis)
+	{
+		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
+		series.setName("Running Times in ms");
+		
+			
+		
+		series.getData().add(new XYChart.Data<Number, Number>(15, 25));
+		series.getData().add(new XYChart.Data<Number, Number>(25, 30));
+		series.getData().add(new XYChart.Data<Number, Number>(27, 35));
+		
+		
+		return series;
 	}
 }
+
