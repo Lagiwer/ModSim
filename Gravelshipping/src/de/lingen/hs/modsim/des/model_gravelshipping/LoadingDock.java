@@ -63,7 +63,8 @@ public class LoadingDock extends SimulationObject
 				eventQueue.remove(event);
 				
 				truckCurrentlyLoaded = (Truck) event.getObjectAttached();
-				truckCurrentlyLoaded.load(Math.min(loadingWeight.nextInt(), GravelShipping.gravelToShip));
+				int t = Math.min(loadingWeight.nextInt(), GravelShipping.gravelToShip);
+				truckCurrentlyLoaded.load(t);
 				GravelShipping.gravelToShip -= truckCurrentlyLoaded.getLoad();
 				
 				eventQueue.add(new Event(timeStep + truckCurrentlyLoaded.addUtilization(loadingTime.nextInt()),

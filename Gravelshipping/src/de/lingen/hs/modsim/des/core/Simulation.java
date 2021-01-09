@@ -17,6 +17,8 @@ public abstract class Simulation
 		long timeStep = 0;
 		
 		Event e = null;
+		//Arrays
+		// Index = truck#
 		
 		
 		// as long as events are in queue
@@ -59,18 +61,19 @@ public abstract class Simulation
 		
 	}
 
-
+	static double[] truckLoad = new double[12];
 	private void printPostSimStats(long timeStep)
 	{
+		
 		System.out.println("------------------------------------");
 		double utilSumPerSimClass = 0.0;
 		int sumObjectsSimClass = 0;
 		Class<? extends SimulationObject> simulationObjectClass = null;
-		
+		int i = 0;
 		final SimulationObjects simulationObjects = SimulationObjects.getInstance();
-		
 		for (SimulationObject simulationObject : simulationObjects)
 		{
+			i++;
 			double utilSimObject = (double) simulationObject.getTimedUtilized() / timeStep * 100;
 			
 			if (simulationObjectClass == simulationObject.getClass())
@@ -81,16 +84,18 @@ public abstract class Simulation
 			else // a new simulation objects (class)
 			{
 				if (simulationObjectClass != null && sumObjectsSimClass > 1)
-					System.out.println(String.format("tUtilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
+					System.out.println(String.format("adbUtilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
 				
 				simulationObjectClass = simulationObject.getClass();
 				utilSumPerSimClass = utilSimObject;
 				sumObjectsSimClass = 1;
 			}
 			
-			System.out.println(String.format("fUtilization %s = %.2f %%", simulationObject, utilSimObject +1 ));
+			truckLoad[i] += utilSimObject;
+			System.out.println(String.format("yeeetUtilization %s = %.2f %%", simulationObject, utilSimObject ));
 			
 		}
+		
 		
 		if (sumObjectsSimClass > 1)
 			System.out.println(String.format("Utilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
@@ -106,13 +111,17 @@ public abstract class Simulation
 	public static XYChart.Series<Number, Number> test123(int xAxis, int yAxis)
 	{
 		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
-		series.setName("Running Times in ms");
+		series.setName("Truck load in percent");
 		
-			
+		int i = 0;
+		for(double x : truckLoad)
+		{
+			i++;
+			series.getData().add(new XYChart.Data<Number,Number>(i, x));
+		}
 		
-		series.getData().add(new XYChart.Data<Number, Number>(15, 25));
-		series.getData().add(new XYChart.Data<Number, Number>(25, 30));
-		series.getData().add(new XYChart.Data<Number, Number>(27, 35));
+		//series.getData().add(new XYChart.Data<Number, Number>("t//est", 30));
+		//series.getData().add(new XYChart.Data<Number, Number>(27, 35));
 		
 		
 		return series;

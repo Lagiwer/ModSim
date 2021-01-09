@@ -6,6 +6,8 @@ import de.lingen.hs.modsim.des.core.Simulation;
 
 public class GravelShipping extends Simulation
 {
+
+	
 	public static Integer gravelToShip = 50000;
 	public static Integer unsuccessfullLoadingSizes = 0;
 	public static Integer unsuccessfullLoadings = 0;

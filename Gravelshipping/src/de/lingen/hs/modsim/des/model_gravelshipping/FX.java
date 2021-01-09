@@ -27,10 +27,6 @@ public class FX extends Application {
 		
 		launch(args);
 		
-		
-		
-		
-	
 	}
 
 	
@@ -49,10 +45,10 @@ public class FX extends Application {
 		
 		ScatterChart<Number, Number> sc = new ScatterChart<Number, Number>(xAxis, yAxis);
 		xAxis.setLabel("# items");
-		yAxis.setLabel("running times in ms");
+		yAxis.setLabel("%");
 		sc.getData().add(DatenErsterGraph);
 		sc.setPrefSize(500, 400);
-		sc.setTitle("running times in ms");
+		sc.setTitle("Truck load in percent");
 		
 		
 		
