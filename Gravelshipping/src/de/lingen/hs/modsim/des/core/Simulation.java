@@ -69,11 +69,11 @@ public abstract class Simulation
 		double utilSumPerSimClass = 0.0;
 		int sumObjectsSimClass = 0;
 		Class<? extends SimulationObject> simulationObjectClass = null;
-		int i = 0;
+		//int i = 0;
 		final SimulationObjects simulationObjects = SimulationObjects.getInstance();
 		for (SimulationObject simulationObject : simulationObjects)
 		{
-			i++;
+			//i++;
 			double utilSimObject = (double) simulationObject.getTimedUtilized() / timeStep * 100;
 			
 			if (simulationObjectClass == simulationObject.getClass())
@@ -91,7 +91,7 @@ public abstract class Simulation
 				sumObjectsSimClass = 1;
 			}
 			
-			truckLoad[i] += utilSimObject;
+			//truckLoad[i] += utilSimObject;
 			System.out.println(String.format("yeeetUtilization %s = %.2f %%", simulationObject, utilSimObject ));
 			
 		}
@@ -118,6 +118,7 @@ public abstract class Simulation
 		{
 			i++;
 			series.getData().add(new XYChart.Data<Number,Number>(i, x));
+			series.getData().add(new XYChart.Data<Number, Number>(0, 100));
 		}
 		
 		//series.getData().add(new XYChart.Data<Number, Number>("t//est", 30));
