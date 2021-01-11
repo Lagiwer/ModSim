@@ -10,12 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.application.Application;
-/*import javafx.scene.Scene;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.ScatterChart;
-import javafx.scene.chart.XYChart.Series;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;*/
+
 
 public class FX extends Application {
 	
