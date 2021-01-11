@@ -113,7 +113,7 @@ public abstract class Simulation
 	}
 	
 	
-	public static XYChart.Series<Number, Number> test123()
+	public static XYChart.Series<Number, Number> TruckLoadGraph()
 	{
 		GravelShipping.main(null);
 		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
@@ -127,7 +127,7 @@ public abstract class Simulation
 		return series;
 	}
 	
-	public static XYChart.Series<Number, Number> test1234()
+	public static XYChart.Series<Number, Number> DockLoadGraph()
 	{
 		
 		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();

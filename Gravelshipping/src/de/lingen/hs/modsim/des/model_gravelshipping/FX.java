@@ -32,7 +32,7 @@ public class FX extends Application {
 	{
 		
 		
-		Series<Number, Number> DatenErsterGraph = Simulation.test123();
+		Series<Number, Number> DatenErsterGraph = Simulation.TruckLoadGraph();
 
 		
 		
@@ -47,7 +47,7 @@ public class FX extends Application {
 		sc.setTitle("Truck load in percent");
 		
 		
-		Series<Number, Number> DatenZweiterGraph = Simulation.test1234();
+		Series<Number, Number> DatenZweiterGraph = Simulation.DockLoadGraph();
 
 		stage.setTitle("test");
 		
