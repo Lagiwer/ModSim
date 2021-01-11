@@ -21,7 +21,7 @@ public class FX extends Application {
 	private static final int ITERATIONS = 5;
 	
 	private static final int PIXEL_X = 1000;
-	private static final int PIXEL_Y = 800;
+	private static final int PIXEL_Y = 900;
 
 	public static void main(String[] args) {
 		
@@ -34,9 +34,9 @@ public class FX extends Application {
 	
 	public void start(Stage stage) throws Exception
 	{
-		stage.setTitle("test");
 		
-		Series<Number, Number> DatenErsterGraph = Simulation.test123(ITEMS, ITERATIONS);
+		
+		Series<Number, Number> DatenErsterGraph = Simulation.test123();
 
 		
 		
@@ -44,24 +44,27 @@ public class FX extends Application {
 		NumberAxis yAxis = new NumberAxis();
 		
 		ScatterChart<Number, Number> sc = new ScatterChart<Number, Number>(xAxis, yAxis);
-		xAxis.setLabel("# items");
+		xAxis.setLabel("# Trucks");
 		yAxis.setLabel("%");
 		sc.getData().add(DatenErsterGraph);
 		sc.setPrefSize(500, 400);
 		sc.setTitle("Truck load in percent");
 		
 		
+		Series<Number, Number> DatenZweiterGraph = Simulation.test1234();
+
+		stage.setTitle("test");
 		
-		NumberAxis xAxis2 = new NumberAxis();
-		NumberAxis yAxis2 = new NumberAxis();
+		NumberAxis xAxis1 = new NumberAxis();
+		NumberAxis yAxis1 = new NumberAxis();
 		
-		ScatterChart<Number, Number> sc2 = new ScatterChart<Number, Number>(xAxis2, yAxis2);
-		xAxis2.setLabel("# items");
-		yAxis2.setLabel("running times in ms");
-				
-			
+		ScatterChart<Number, Number> sc2 = new ScatterChart<Number, Number>(xAxis1, yAxis1);
+		xAxis1.setLabel("# Docks");
+		yAxis1.setLabel("%");
+		sc2.getData().add(DatenZweiterGraph);
 		sc2.setPrefSize(500, 400);
-		sc2.setTitle("anzeige 2");
+		sc2.setTitle("Dock load in percent");
+
 		
 		VBox vb = new VBox();
 		vb.getChildren().addAll(sc, sc2);

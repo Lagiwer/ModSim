@@ -2,6 +2,7 @@ package de.lingen.hs.modsim.des.core;
 
 
 import javafx.scene.chart.XYChart;
+import de.lingen.hs.modsim.des.model_gravelshipping.*;
 
 public abstract class Simulation
 {
@@ -62,6 +63,7 @@ public abstract class Simulation
 	}
 
 	static double[] truckLoad = new double[12];
+	static double[] ldLoad = new double[4];
 	private void printPostSimStats(long timeStep)
 	{
 		
@@ -69,11 +71,11 @@ public abstract class Simulation
 		double utilSumPerSimClass = 0.0;
 		int sumObjectsSimClass = 0;
 		Class<? extends SimulationObject> simulationObjectClass = null;
-		//int i = 0;
+		int i = 0;
 		final SimulationObjects simulationObjects = SimulationObjects.getInstance();
 		for (SimulationObject simulationObject : simulationObjects)
 		{
-			//i++;
+			
 			double utilSimObject = (double) simulationObject.getTimedUtilized() / timeStep * 100;
 			
 			if (simulationObjectClass == simulationObject.getClass())
@@ -90,41 +92,52 @@ public abstract class Simulation
 				utilSumPerSimClass = utilSimObject;
 				sumObjectsSimClass = 1;
 			}
-			
-			//truckLoad[i] += utilSimObject;
-			System.out.println(String.format("yeeetUtilization %s = %.2f %%", simulationObject, utilSimObject ));
+			if(i <= 11) {
+				truckLoad[i] += utilSimObject;	
+			}
+			else if(i>=12 && i <= 15)
+			{
+				System.out.println(utilSimObject);
+				ldLoad[i - 12] += utilSimObject;
+			}
+			i++;
+			System.out.println(String.format("Utilization %s = %.2f %%", simulationObject, utilSimObject ));
 			
 		}
-		
 		
 		if (sumObjectsSimClass > 1)
 			System.out.println(String.format("Utilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
 		System.out.println("------------------------------------");
-		
-		
-		
-		
+
 		
 	}
 	
 	
-	public static XYChart.Series<Number, Number> test123(int xAxis, int yAxis)
+	public static XYChart.Series<Number, Number> test123()
 	{
+		GravelShipping.main(null);
 		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
 		series.setName("Truck load in percent");
-		
 		int i = 0;
 		for(double x : truckLoad)
 		{
+			series.getData().add(new XYChart.Data<Number,Number>(i + 1, x));
 			i++;
-			series.getData().add(new XYChart.Data<Number,Number>(i, x));
-			series.getData().add(new XYChart.Data<Number, Number>(0, 100));
 		}
+		return series;
+	}
+	
+	public static XYChart.Series<Number, Number> test1234()
+	{
 		
-		//series.getData().add(new XYChart.Data<Number, Number>("t//est", 30));
-		//series.getData().add(new XYChart.Data<Number, Number>(27, 35));
-		
-		
+		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
+		series.setName("Dock load in percent");
+		int i = 0;
+		for(double x : ldLoad)
+		{
+			series.getData().add(new XYChart.Data<Number,Number>(i +1 , x));
+			i++;
+		}
 		return series;
 	}
 }
