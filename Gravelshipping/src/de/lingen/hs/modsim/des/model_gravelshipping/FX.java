@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.application.Application;
@@ -20,8 +22,8 @@ public class FX extends Application {
 	private static final int ITEMS = 20;
 	private static final int ITERATIONS = 5;
 	
-	private static final int PIXEL_X = 1000;
-	private static final int PIXEL_Y = 900;
+	private static final int PIXEL_X = 1100;
+	private static final int PIXEL_Y = 850;
 
 	public static void main(String[] args) {
 		
@@ -67,7 +69,20 @@ public class FX extends Application {
 
 		
 		VBox vb = new VBox();
-		vb.getChildren().addAll(sc, sc2);
+		GridPane test = new GridPane();
+		Label shipped = new Label("\tGravel shipped: "+ GravelShipping.gravelShipped);
+		Label mtpgu = new Label("\tMean time per gravel unit: " + (double)GravelShipping.timeStep / GravelShipping.gravelShipped + " minutes");
+		Label sulo = new Label(String.format("\tSuccessfull loadings= %d(%.2f%%), mean size %.2ft", GravelShipping.successfullLoadings,
+				(double) GravelShipping.successfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
+				(double) GravelShipping.successfullLoadingSizes / GravelShipping.successfullLoadings));
+		Label usulo = new Label(String.format("Unsuccessfull loadings\t\t= %d(%.2f%%), mean size %.2ft", GravelShipping.unsuccessfullLoadings,
+				(double) GravelShipping.unsuccessfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
+				(double) GravelShipping.unsuccessfullLoadingSizes / GravelShipping.unsuccessfullLoadings));
+		test.add(shipped, 0, 1);
+		test.add(mtpgu, 1, 1);
+		test.add(sulo, 2, 1);
+		test.add(usulo, 3, 1);
+		vb.getChildren().addAll(sc, sc2, test);
 		stage.setScene(new Scene(vb, PIXEL_X, PIXEL_Y));
 		stage.show();
 	}

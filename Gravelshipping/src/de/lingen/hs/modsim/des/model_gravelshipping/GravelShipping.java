@@ -7,7 +7,7 @@ import de.lingen.hs.modsim.des.core.Simulation;
 public class GravelShipping extends Simulation
 {
 
-	
+	public static long timeStep = 0;
 	public static Integer gravelToShip = 50000;
 	public static Integer unsuccessfullLoadingSizes = 0;
 	public static Integer unsuccessfullLoadings = 0;
@@ -35,7 +35,7 @@ public class GravelShipping extends Simulation
 			new WeighingStation("WS" + i);
 
 		GravelShipping gs = new GravelShipping();
-		long timeStep = gs.simulate();
+		timeStep = gs.simulate();
 		
 		// output some gravel shipping stats
 		System.out.println("test1");
