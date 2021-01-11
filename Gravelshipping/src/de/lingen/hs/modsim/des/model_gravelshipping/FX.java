@@ -75,7 +75,7 @@ public class FX extends Application {
 		Label sulo = new Label(String.format("\tSuccessfull loadings= %d(%.2f%%), mean size %.2ft", GravelShipping.successfullLoadings,
 				(double) GravelShipping.successfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.successfullLoadingSizes / GravelShipping.successfullLoadings));
-		Label usulo = new Label(String.format("\tUnsuccessfull loadings\t\t= %d(%.2f%%), mean size %.2ft", GravelShipping.unsuccessfullLoadings,
+		Label usulo = new Label(String.format("\tUnsuccessfull loadings= %d(%.2f%%), mean size %.2ft", GravelShipping.unsuccessfullLoadings,
 				(double) GravelShipping.unsuccessfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.unsuccessfullLoadingSizes / GravelShipping.unsuccessfullLoadings));
 		test.add(shipped, 0, 1);
