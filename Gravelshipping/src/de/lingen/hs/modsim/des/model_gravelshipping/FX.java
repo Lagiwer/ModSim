@@ -19,8 +19,7 @@ import javafx.stage.Stage;*/
 
 public class FX extends Application {
 	
-	private static final int ITEMS = 20;
-	private static final int ITERATIONS = 5;
+
 	
 	private static final int PIXEL_X = 1100;
 	private static final int PIXEL_Y = 850;

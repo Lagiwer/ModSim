@@ -38,7 +38,7 @@ public class GravelShipping extends Simulation
 		timeStep = gs.simulate();
 		
 		// output some gravel shipping stats
-		System.out.println("test1");
+		
 		System.out.println("Gravel shipped\t\t\t= " + gravelShipped + "t");
 		System.out.println("Mean time per gravel unit\t= " + (double) timeStep / gravelShipped + " minutes");
 		
@@ -49,7 +49,7 @@ public class GravelShipping extends Simulation
 		System.out.println(String.format("Unsuccessfull loadings\t\t= %d(%.2f%%), mean size %.2ft", unsuccessfullLoadings,
 				(double) unsuccessfullLoadings / (successfullLoadings + unsuccessfullLoadingSizes) * 100,
 				(double) unsuccessfullLoadingSizes / unsuccessfullLoadings));
-		System.out.println("test");
+		
 	}
 
 	@Override

@@ -86,7 +86,7 @@ public abstract class Simulation
 			else // a new simulation objects (class)
 			{
 				if (simulationObjectClass != null && sumObjectsSimClass > 1)
-					System.out.println(String.format("adbUtilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
+					System.out.println(String.format("Utilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
 				
 				simulationObjectClass = simulationObject.getClass();
 				utilSumPerSimClass = utilSimObject;
@@ -97,7 +97,7 @@ public abstract class Simulation
 			}
 			else if(i>=12 && i <= 15)
 			{
-				System.out.println(utilSimObject);
+				//System.out.println(utilSimObject);
 				ldLoad[i - 12] += utilSimObject;
 			}
 			i++;
