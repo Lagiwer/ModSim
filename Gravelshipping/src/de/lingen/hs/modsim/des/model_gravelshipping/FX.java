@@ -86,7 +86,10 @@ public class FX extends Application {
 				(double) GravelShipping.unsuccessfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.unsuccessfullLoadingSizes / GravelShipping.unsuccessfullLoadings));
 		usulo.setFont(Font.font("Arial", FontWeight.BOLD,12));
-		
+		zusatzDaten.add(shipped, 0, 1);
+		zusatzDaten.add(mtpgu, 1, 1);
+		zusatzDaten.add(sulo, 2, 1);
+		zusatzDaten.add(usulo, 3, 1);
 		
 		
 		
@@ -161,10 +164,7 @@ public class FX extends Application {
 		
 		
 		
-		zusatzDaten.add(shipped, 0, 1);
-		zusatzDaten.add(mtpgu, 1, 1);
-		zusatzDaten.add(sulo, 2, 1);
-		zusatzDaten.add(usulo, 3, 1);
+		
 		vb.getChildren().addAll(sc,TLDaten, sc2, zusatzDaten );
 		stage.setScene(new Scene(vb, PIXEL_X, PIXEL_Y));
 		stage.show();
