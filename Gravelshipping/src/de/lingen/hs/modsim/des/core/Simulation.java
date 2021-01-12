@@ -82,6 +82,7 @@ public abstract class Simulation
 			{
 				utilSumPerSimClass += utilSimObject;
 				sumObjectsSimClass++;
+				
 			}
 			else // a new simulation objects (class)
 			{
@@ -91,6 +92,7 @@ public abstract class Simulation
 				simulationObjectClass = simulationObject.getClass();
 				utilSumPerSimClass = utilSimObject;
 				sumObjectsSimClass = 1;
+				
 			}
 			if(i <= 11) {
 				truckLoad[i] += utilSimObject;	
@@ -111,7 +113,55 @@ public abstract class Simulation
 
 		
 	}
+	public static double getTLoad1() {
+		return truckLoad[0];
+	}
+	public static double getTLoad2() {
+		return truckLoad[1];
+	}
+	public static double getTLoad3() {
+		return truckLoad[2];
+	}
+	public static double getTLoad4() {
+		return truckLoad[3];
+	}
+	public static double getTLoad5() {
+		return truckLoad[4];
+	}
+	public static double getTLoad6() {
+		return truckLoad[5];
+	}
+	public static double getTLoad7() {
+		return truckLoad[6];
+	}
+	public static double getTLoad8() {
+		return truckLoad[7];
+	}
+	public static double getTLoad9() {
+		return truckLoad[8];
+	}
+	public static double getTLoad10() {
+		return truckLoad[9];
+	}
+	public static double getTLoad11() {
+		return truckLoad[10];
+	}
+	public static double getTLoad12() {
+		return truckLoad[11];
+	}
 	
+	public static double getldLoad1() {
+		return ldLoad[0];
+	}
+	public static double getldLoad2() {
+		return ldLoad[1];
+	}
+	public static double getldLoad3() {
+		return ldLoad[2];
+	}
+	public static double getldLoad4() {
+		return ldLoad[3];
+	}
 	
 	public static XYChart.Series<Number, Number> TruckLoadGraph()
 	{
