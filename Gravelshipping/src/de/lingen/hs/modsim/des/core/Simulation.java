@@ -61,7 +61,7 @@ public abstract class Simulation
 		return timeStep;
 		
 	}
-
+	static double ws = 0;
 	static double[] truckLoad = new double[12];
 	static double[] ldLoad = new double[4];
 	private void printPostSimStats(long timeStep)
@@ -110,9 +110,15 @@ public abstract class Simulation
 		if (sumObjectsSimClass > 1)
 			System.out.println(String.format("Utilization Class %s = %.2f %%", simulationObjectClass.getName(), utilSumPerSimClass / sumObjectsSimClass));
 		System.out.println("------------------------------------");
+		ws = (utilSumPerSimClass / sumObjectsSimClass);
 
 		
 	}
+	
+	public static double getWs() {
+		return ws;
+	}
+	
 	public static double getTLoad1() {
 		return truckLoad[0];
 	}

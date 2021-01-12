@@ -21,7 +21,7 @@ public class FX extends Application {
 	
 
 	
-	private static final int PIXEL_X = 1100;
+	private static final int PIXEL_X = 1300;
 	private static final int PIXEL_Y = 920;
 
 	public static void main(String[] args) {
@@ -131,6 +131,7 @@ public class FX extends Application {
 		
 		Label ld1 = new Label("Dock 1: " + df.format(Simulation.getldLoad1())+"%");
 		Label ld2 = new Label("Dock 2: " + df.format(Simulation.getldLoad2())+"%");
+		Label ws = new Label("Utilization Weighing Station: " + df.format(Simulation.getWs()) + "%");
 		Label ld3 = new Label("Dock 3: " + df.format(Simulation.getldLoad3())+"%");
 		Label ld4 = new Label("Dock 4: " + df.format(Simulation.getldLoad4())+"%");
 		
@@ -138,6 +139,8 @@ public class FX extends Application {
 		ld2.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		ld3.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		ld4.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		
+		ws.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		
 		TLDaten.add(spacingVorne, 0, 1);
 		TLDaten.add(t1, 1, 1);
@@ -156,6 +159,7 @@ public class FX extends Application {
 		TLDaten.add(spacingVorne1, 4 , 1);
 		TLDaten.add(ld1, 5 , 1);
 		TLDaten.add(ld2, 5 , 2);
+		TLDaten.add(ws, 5, 3);
 		TLDaten.add(spacing1, 6, 1);
 		TLDaten.add(ld3, 7 , 1);
 		TLDaten.add(ld4, 7 , 2);
