@@ -8,6 +8,8 @@ import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.application.Application;
 
@@ -49,7 +51,7 @@ public class FX extends Application {
 		
 		Series<Number, Number> DatenZweiterGraph = Simulation.DockLoadGraph();
 
-		stage.setTitle("test");
+		
 		
 		NumberAxis xAxis1 = new NumberAxis();
 		NumberAxis yAxis1 = new NumberAxis();
@@ -61,17 +63,21 @@ public class FX extends Application {
 		sc2.setPrefSize(500, 400);
 		sc2.setTitle("Dock load in percent");
 
-		
+		stage.setTitle("Gravelshipping");
 		VBox vb = new VBox();
 		GridPane test = new GridPane();
 		Label shipped = new Label("\tGravel shipped: "+ GravelShipping.gravelShipped);
+		shipped.setFont(Font.font("Arial", FontWeight.BOLD,12));
 		Label mtpgu = new Label("\tMean time per gravel unit: " + (double)GravelShipping.timeStep / GravelShipping.gravelShipped + " minutes");
+		mtpgu.setFont(Font.font("Arial", FontWeight.BOLD,12));
 		Label sulo = new Label(String.format("\tSuccessfull loadings= %d(%.2f%%), mean size %.2ft", GravelShipping.successfullLoadings,
 				(double) GravelShipping.successfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.successfullLoadingSizes / GravelShipping.successfullLoadings));
+		sulo.setFont(Font.font("Arial", FontWeight.BOLD,12));
 		Label usulo = new Label(String.format("\tUnsuccessfull loadings= %d(%.2f%%), mean size %.2ft", GravelShipping.unsuccessfullLoadings,
 				(double) GravelShipping.unsuccessfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.unsuccessfullLoadingSizes / GravelShipping.unsuccessfullLoadings));
+		usulo.setFont(Font.font("Arial", FontWeight.BOLD,12));
 		test.add(shipped, 0, 1);
 		test.add(mtpgu, 1, 1);
 		test.add(sulo, 2, 1);
