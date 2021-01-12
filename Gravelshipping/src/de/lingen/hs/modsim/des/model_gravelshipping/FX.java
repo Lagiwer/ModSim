@@ -21,8 +21,8 @@ public class FX extends Application {
 	
 
 	
-	private static final int PIXEL_X = 1300;
-	private static final int PIXEL_Y = 920;
+	private static final int PIXEL_X = 1100;
+	private static final int PIXEL_Y = 850;
 
 	public static void main(String[] args) {
 		
@@ -35,7 +35,8 @@ public class FX extends Application {
 	
 	public void start(Stage stage) throws Exception
 	{
-		
+		DecimalFormat df = new DecimalFormat("#.##");
+
 		
 		Series<Number, Number> DatenErsterGraph = Simulation.TruckLoadGraph();
 
@@ -86,16 +87,24 @@ public class FX extends Application {
 				(double) GravelShipping.unsuccessfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.unsuccessfullLoadingSizes / GravelShipping.unsuccessfullLoadings));
 		usulo.setFont(Font.font("Arial", FontWeight.BOLD,12));
+		Label ws = new Label("\tUtilization Weighing Station: " + df.format(Simulation.getWs()) + "%");
+		ws.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+		Label tab = new Label("\t\t\t\t\t\t\t\t\t\t\t");
+
+		
+		
+		zusatzDaten.add(ws, 0,3);
+
 		zusatzDaten.add(shipped, 0, 1);
-		zusatzDaten.add(mtpgu, 1, 1);
+		zusatzDaten.add(mtpgu, 0, 2);
+		zusatzDaten.add(tab, 1, 0);
 		zusatzDaten.add(sulo, 2, 1);
-		zusatzDaten.add(usulo, 3, 1);
+		zusatzDaten.add(usulo, 2, 2);
 		
 		
 		
 					
 		
-		DecimalFormat df = new DecimalFormat("#.##");
 				
 		GridPane TLDaten = new GridPane();
 		Label t1 = new Label("Truck 1: " + df.format(Simulation.getTLoad1())+"%");
@@ -131,7 +140,6 @@ public class FX extends Application {
 		
 		Label ld1 = new Label("Dock 1: " + df.format(Simulation.getldLoad1())+"%");
 		Label ld2 = new Label("Dock 2: " + df.format(Simulation.getldLoad2())+"%");
-		Label ws = new Label("Utilization Weighing Station: " + df.format(Simulation.getWs()) + "%");
 		Label ld3 = new Label("Dock 3: " + df.format(Simulation.getldLoad3())+"%");
 		Label ld4 = new Label("Dock 4: " + df.format(Simulation.getldLoad4())+"%");
 		
@@ -140,7 +148,6 @@ public class FX extends Application {
 		ld3.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		ld4.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		
-		ws.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		
 		TLDaten.add(spacingVorne, 0, 1);
 		TLDaten.add(t1, 1, 1);
@@ -159,7 +166,6 @@ public class FX extends Application {
 		TLDaten.add(spacingVorne1, 4 , 1);
 		TLDaten.add(ld1, 5 , 1);
 		TLDaten.add(ld2, 5 , 2);
-		TLDaten.add(ws, 5, 3);
 		TLDaten.add(spacing1, 6, 1);
 		TLDaten.add(ld3, 7 , 1);
 		TLDaten.add(ld4, 7 , 2);
