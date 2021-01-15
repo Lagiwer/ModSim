@@ -2,11 +2,36 @@ package de.lingen.hs.modsim.des.core;
 
 
 import javafx.scene.chart.XYChart;
+
+import java.io.*;
+
 import de.lingen.hs.modsim.des.model_gravelshipping.*;
+
 
 public abstract class Simulation
 {
 	protected abstract void printEveryStep();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public long simulate()
@@ -169,19 +194,42 @@ public abstract class Simulation
 		return ldLoad[3];
 	}
 	
-	public static XYChart.Series<Number, Number> TruckLoadGraph()
+	public static XYChart.Series<Number, Number> TruckLoadGraph() 
+
+	
+	
 	{
 		GravelShipping.main(null);
 		XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
-		series.setName("Truck load in percent");
+		series.setName("Dock load in percent");
 		int i = 0;
 		for(double x : truckLoad)
 		{
 			series.getData().add(new XYChart.Data<Number,Number>(i + 1, x));
 			i++;
+
+			
 		}
 		return series;
 	}
+	/*public static XYChart.Series<Number, Number> TruckLoadGraph1()
+	{
+		
+		XYChart.Series<Number, Number> series1 = new XYChart.Series<Number, Number>();
+		series1.setName("Dock load in percent");
+		int i = 0;
+		for(double x : truckLoad)
+		{
+			series1.getData().add(new XYChart.Data<Number,Number>(5, 10));
+			series1.getData().add(new XYChart.Data<Number,Number>(10, 15));
+			series1.getData().add(new XYChart.Data<Number,Number>(7, 80));
+			series1.getData().add(new XYChart.Data<Number,Number>(3, 40));
+
+			i++;
+		}
+		return series1;
+	}
+	*/
 	
 	public static XYChart.Series<Number, Number> DockLoadGraph()
 	{
@@ -196,5 +244,42 @@ public abstract class Simulation
 		}
 		return series;
 	}
+	
+
+	
+
+	
+	public static XYChart.Series<Number, Number> TruckLoadGraphWriter() throws IOException 
+	{
+	    Writer writer = null;
+	   
+        try {
+        File file = new File("C:\\Users\\noetz\\Desktop\\Person.csv");
+        writer = new BufferedWriter(new FileWriter(file));
+        
+        XYChart.Series<Number, Number> series5 = new XYChart.Series<Number, Number>();
+		int i = 0;
+		for(double x : truckLoad)
+		{
+			series5.getData().add(new XYChart.Data<Number,Number>(i + 1, x));
+						i++;
+						
+			String ausgabe = Double.toString(x) + " " + Double.toString(i) + "\r" ;
+            writer.write(ausgabe);
+
+		}}catch (Exception ex) {
+	        ex.printStackTrace();
+        }finally {
+
+            writer.flush();
+             writer.close();
+		
+        }
+		return null;
+		
+	}
+	
+	
+	
 }
 
