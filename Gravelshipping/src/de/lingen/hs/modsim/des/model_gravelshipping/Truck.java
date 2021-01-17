@@ -34,7 +34,7 @@ public class Truck extends SimulationObject
 	@Override
 	public String toString()
 	{
-		return "12312321"+name + (loadedWithTons != null ? "(" + loadedWithTons + "t" + ")" : "");
+		return name + (loadedWithTons != null ? "(" + loadedWithTons + "t" + ")" : "");
 	}
 
 
