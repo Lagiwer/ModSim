@@ -30,7 +30,7 @@ public class Time
 			timeStepInMinutes -= timeUnit * minutesPerTimeUnit;
 		}
 		
-		return timeStepInMinutes;
+		return timeStepInMinutes ;
 	}
 	
 }

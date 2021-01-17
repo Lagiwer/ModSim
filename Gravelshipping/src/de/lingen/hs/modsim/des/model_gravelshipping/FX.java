@@ -39,7 +39,10 @@ public class FX extends Application {
 
 		
 		Series<Number, Number> DatenErsterGraph = Simulation.TruckLoadGraph();
-		Simulation.TruckLoadGraphWriter();
+		
+
+		Simulation.SimulationWriter();
+
 		
 		
 		NumberAxis xAxis = new NumberAxis();

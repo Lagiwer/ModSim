@@ -40,7 +40,7 @@ public class WeighingStation extends SimulationObject
 	@Override
 	public String toString()
 	{
-		return "Weighing Station: " + name + " Truck: " + (truckCurrentlyWeighted != null ? truckCurrentlyWeighted : "---");
+		return "hurensohnWeighing Station: " + name + " Truck: " + (truckCurrentlyWeighted != null ? truckCurrentlyWeighted : "---");
 	}
 	
 	

@@ -4,6 +4,7 @@ package de.lingen.hs.modsim.des.core;
 import javafx.scene.chart.XYChart;
 
 import java.io.*;
+import java.text.DecimalFormat;
 
 import de.lingen.hs.modsim.des.model_gravelshipping.*;
 
@@ -249,10 +250,11 @@ public abstract class Simulation
 	
 
 	
-	public static XYChart.Series<Number, Number> TruckLoadGraphWriter() throws IOException 
+	public static XYChart.Series<Number, Number> SimulationWriter() throws IOException 
 	{
 	    Writer writer = null;
-	   
+	    DecimalFormat df = new DecimalFormat("#.##");
+	    
         try {
         File file = new File("C:\\Users\\noetz\\Desktop\\Person.csv");
         writer = new BufferedWriter(new FileWriter(file));
@@ -263,11 +265,28 @@ public abstract class Simulation
 		{
 			series5.getData().add(new XYChart.Data<Number,Number>(i + 1, x));
 						i++;
-						
-			String ausgabe = Double.toString(x) + " " + Double.toString(i) + "\r" ;
+			String z = df.format(x);			
+			String ausgabe = "Truck Nr.: " + Double.toString(i) + "\t\t Auslastung: " + z + "%" + "\r" ;
             writer.write(ausgabe);
-
-		}}catch (Exception ex) {
+		}
+		
+		
+		
+		
+		XYChart.Series<Number, Number> series6 = new XYChart.Series<Number, Number>();
+		String space ="\n\n";
+		writer.write(space);
+            for(double y : ldLoad)
+    		{
+    			series6.getData().add(new XYChart.Data<Number,Number>(i +1 , y));
+    			String u = df.format(y);
+    			
+    			String ausgabe = "Dock Nr.: " + Double.toString(i-11) + "\t\t Auslastung: " + u + "%" + "\r" ;
+                writer.write(ausgabe);
+    			i++;
+    		}
+        writer.write(space);
+		}catch (Exception ex) {
 	        ex.printStackTrace();
         }finally {
 

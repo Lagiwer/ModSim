@@ -50,6 +50,8 @@ public class GravelShipping extends Simulation
 				(double) unsuccessfullLoadings / (successfullLoadings + unsuccessfullLoadingSizes) * 100,
 				(double) unsuccessfullLoadingSizes / unsuccessfullLoadings));
 		
+		
+		
 	}
 
 	@Override

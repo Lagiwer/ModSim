@@ -19,7 +19,7 @@ public enum GravelShippingEvents implements UniqueEventDescription
 		this.uniqueEventDescription = uniqueEventDescription;
 	}
 	
-	
+
 	@Override
 	public String get()
 	{
