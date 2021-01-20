@@ -7,41 +7,21 @@ import java.io.*;
 import java.text.DecimalFormat;
 
 import de.lingen.hs.modsim.des.model_gravelshipping.*;
-
+                                                                                                                       
 
 public abstract class Simulation
 {
 	protected abstract void printEveryStep();
+	static Long[] localtimestamp = new Long[12];
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public long simulate()
+		public long simulate()
 	{
 		EventQueue eventqueue = EventQueue.getInstance();
 		SimulationObjects simulationObjects = SimulationObjects.getInstance();
 		
 		long numberOfSteps = 1;
 		long timeStep = 0;
+		int i= -1;
 		
 		Event e = null;
 		//Arrays
@@ -49,9 +29,11 @@ public abstract class Simulation
 		
 		
 		// as long as events are in queue
+		
 		do
-		{
+		{	
 			System.out.print(numberOfSteps++ + ". " + Time.stepsToString(timeStep) + " " + eventqueue);
+			localtimestamp[i+1]=timeStep;
 			printEveryStep();
 			
 			// at least one simulationobject did something = consumes events, creates events
@@ -89,6 +71,7 @@ public abstract class Simulation
 	}
 	static double ws = 0;
 	static double[] truckLoad = new double[12];
+	
 	static double[] ldLoad = new double[4];
 	private void printPostSimStats(long timeStep)
 	{
@@ -256,18 +239,20 @@ public abstract class Simulation
 	    DecimalFormat df = new DecimalFormat("#.##");
 	    
         try {
-        File file = new File("C:\\Users\\noetz\\Desktop\\Daten.csv");
+        File file = new File("C:\\Users\\Vianine\\Desktop\\Daten.csv");
         writer = new BufferedWriter(new FileWriter(file));
         
         XYChart.Series<Number, Number> series5 = new XYChart.Series<Number, Number>();
 		int i = 0;
+		int j = -1;
 		for(double x : truckLoad)
 		{
 			series5.getData().add(new XYChart.Data<Number,Number>(i + 1, x));
 						i++;
-			String z = df.format(x);			
-			String ausgabe = "Truck Nr.: " + Double.toString(i) + "\t\t Auslastung: " + z + "%" + "\r" ;
-            writer.write(ausgabe);
+			String z = df.format(x);
+			
+			String ausgabe = "Truck Nr.: " + Double.toString(i) + "\t\t Auslastung: " + z + "% " +" " + "Zeit: " + Time.stepsToString(localtimestamp[j+1]) + " \r" ;
+			writer.write(ausgabe);
 		}
 		
 		
@@ -286,6 +271,8 @@ public abstract class Simulation
     			i++;
     		}
         writer.write(space);
+        
+        
 		}catch (Exception ex) {
 	        ex.printStackTrace();
         }finally {
@@ -294,6 +281,9 @@ public abstract class Simulation
              writer.close();
 		
         }
+        
+   
+        
 		return null;
 		
 	}
@@ -301,4 +291,3 @@ public abstract class Simulation
 	
 	
 }
-

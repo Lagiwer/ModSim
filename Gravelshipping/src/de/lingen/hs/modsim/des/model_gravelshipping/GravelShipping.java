@@ -3,7 +3,6 @@ package de.lingen.hs.modsim.des.model_gravelshipping;
 import de.lingen.hs.modsim.des.core.Event;
 import de.lingen.hs.modsim.des.core.EventQueue;
 import de.lingen.hs.modsim.des.core.Simulation;
-
 public class GravelShipping extends Simulation
 {
 
