@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.application.Application;
 
 
-import java.text.DecimalFormat;
+import java.text.DecimalFormat;                                                                      
 
 
 public class FX extends Application {
@@ -90,6 +90,7 @@ public class FX extends Application {
 				(double) GravelShipping.unsuccessfullLoadings / (GravelShipping.successfullLoadings + GravelShipping.unsuccessfullLoadingSizes) * 100,
 				(double) GravelShipping.unsuccessfullLoadingSizes / GravelShipping.unsuccessfullLoadings));
 		usulo.setFont(Font.font("Arial", FontWeight.BOLD,12));
+		
 		Label ws = new Label("\tUtilization Weighing Station: " + df.format(Simulation.getWs()) + "%");
 		ws.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		Label tab = new Label("\t\t\t\t\t\t\t\t\t\t\t");
@@ -186,5 +187,4 @@ public class FX extends Application {
 	
 		
 	}
-
 
