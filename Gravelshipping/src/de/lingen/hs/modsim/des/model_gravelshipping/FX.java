@@ -128,6 +128,7 @@ public class FX extends Application {
 		Label spacing1 = new Label("\t\t\t\t\t\t\t");
 		
 		
+		
 		t1.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		t2.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 		t3.setFont(Font.font("Arial", FontWeight.BOLD, 12));

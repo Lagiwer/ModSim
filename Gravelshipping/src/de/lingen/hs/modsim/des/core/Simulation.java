@@ -213,24 +213,7 @@ public abstract class Simulation
 		}
 		return series;
 	}
-	/*public static XYChart.Series<Number, Number> TruckLoadGraph1()
-	{
-		
-		XYChart.Series<Number, Number> series1 = new XYChart.Series<Number, Number>();
-		series1.setName("Dock load in percent");
-		int i = 0;
-		for(double x : truckLoad)
-		{
-			series1.getData().add(new XYChart.Data<Number,Number>(5, 10));
-			series1.getData().add(new XYChart.Data<Number,Number>(10, 15));
-			series1.getData().add(new XYChart.Data<Number,Number>(7, 80));
-			series1.getData().add(new XYChart.Data<Number,Number>(3, 40));
 
-			i++;
-		}
-		return series1;
-	}
-	*/
 	
 	public static XYChart.Series<Number, Number> DockLoadGraph()
 	{
